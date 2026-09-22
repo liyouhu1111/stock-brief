@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自选股简报｜2026-09-22</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  body { font-family:"Microsoft YaHei","PingFang SC",sans-serif; background:#f7f8fa;
+         color:#2c3e50; margin:0; padding:24px; }
+  .wrap { max-width:1080px; margin:0 auto; }
+  h1 { font-size:24px; margin:0 0 4px; }
+  .sub { color:#7a8794; font-size:13px; margin-bottom:20px; }
+  .cards { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px; }
+  .card { flex:1; min-width:140px; background:#fff; border-radius:10px;
+          box-shadow:0 1px 4px rgba(0,0,0,.06); padding:16px 20px; }
+  .card .num { font-size:26px; font-weight:700; }
+  .card .lab { font-size:12px; color:#7a8794; }
+  .c-red { color:#c0392b; } .c-orange { color:#d68910; } .c-gray { color:#5d6d7e; }
+  table { width:100%; border-collapse:collapse; background:#fff; font-size:13px;
+          border-radius:10px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.06); }
+  th { background:#eef1f5; color:#34495e; padding:9px 8px; text-align:right; white-space:nowrap; }
+  th:nth-child(1),th:nth-child(2),th:nth-child(10) { text-align:center; }
+  td { padding:8px; border-top:1px solid #f0f2f5; text-align:right; font-variant-numeric:tabular-nums; }
+  td:nth-child(1),td:nth-child(2),td:nth-child(10) { text-align:center; }
+  tr.alert { background:#fdecea; }
+  tr.watch { background:#fef7e6; }
+  .up { color:#c0392b; } .down { color:#1e8449; }
+  .tag { display:inline-block; padding:1px 8px; border-radius:10px; font-size:12px; }
+  .tag.alert { background:#f5b7b1; color:#7b241c; }
+  .tag.watch { background:#f9e79f; color:#7d6608; }
+  .tag.norm { background:#d5dbdb; color:#424949; }
+  #chart { width:100%; height:520px; background:#fff; border-radius:10px;
+           box-shadow:0 1px 4px rgba(0,0,0,.06); margin:20px 0; }
+  .news { background:#fff; border-radius:10px; box-shadow:0 1px 4px rgba(0,0,0,.06);
+          padding:16px 22px; margin-bottom:20px; }
+  .news h2 { font-size:16px; margin:0 0 10px; }
+  .news li { font-size:13px; line-height:1.9; color:#4a5763; }
+  .news b { color:#2c3e50; }
+  .news .empty { color:#95a5a6; font-size:13px; }
+  .disclaimer { font-size:12px; color:#8a97a5; line-height:1.8; background:#eef1f5;
+                border-radius:10px; padding:14px 18px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📊 自选股简报｜2026-09-22</h1>
+  <div class="sub">数据时点：2026-09-22 A股收盘 · 前复权 · BOLL(20,2) · 数据源：东方财富公开行情接口 · 由 GitHub Actions 自动生成</div>
+
+  <div class="cards">
+    <div class="card"><div class="num">93</div><div class="lab">监控股票</div></div>
+    <div class="card"><div class="num c-red">34</div><div class="lab">🔴 重点提醒（距轨道 &lt;2%）</div></div>
+    <div class="card"><div class="num c-orange">42</div><div class="lab">🟠 关注（&lt;5%）</div></div>
+    <div class="card"><div class="num c-gray">17</div><div class="lab">⚪ 正常</div></div>
+  </div>
+
+  <table>
+    <tr><th>代码</th><th>名称</th><th>收盘价</th><th>涨跌幅</th><th>上轨</th><th>中轨</th><th>下轨</th><th>距上轨</th><th>距下轨</th><th>档位</th></tr>
+    <tr class="alert"><td>688123</td><td>聚辰股份</td><td>171.20</td><td class="up">+9.74%</td><td>158.35</td><td>138.06</td><td>117.77</td><td>-7.50%</td><td>31.21%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600487</td><td>亨通光电</td><td>73.00</td><td class="up">+1.74%</td><td>72.69</td><td>66.53</td><td>60.37</td><td>-0.43%</td><td>17.30%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>688385</td><td>复旦微电</td><td>60.13</td><td class="up">+1.40%</td><td>59.97</td><td>54.98</td><td>50.00</td><td>-0.27%</td><td>16.85%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>002185</td><td>华天科技</td><td>18.28</td><td class="down">-1.46%</td><td>18.24</td><td>16.66</td><td>15.08</td><td>-0.19%</td><td>17.51%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>000333</td><td>美的集团</td><td>82.54</td><td class="up">+2.03%</td><td>89.22</td><td>85.88</td><td>82.54</td><td>8.09%</td><td>-0.01%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>002039</td><td>黔源电力</td><td>19.18</td><td class="down">-0.88%</td><td>19.66</td><td>19.40</td><td>19.15</td><td>2.51%</td><td>0.18%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600690</td><td>海尔智家</td><td>20.20</td><td class="up">+1.56%</td><td>22.07</td><td>21.11</td><td>20.15</td><td>9.27%</td><td>0.27%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600236</td><td>桂冠电力</td><td>9.44</td><td class="down">-1.67%</td><td>10.04</td><td>9.72</td><td>9.41</td><td>6.34%</td><td>0.37%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>603345</td><td>安井食品</td><td>79.66</td><td class="down">-1.54%</td><td>80.03</td><td>76.38</td><td>72.73</td><td>0.46%</td><td>8.70%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600699</td><td>均胜电子</td><td>20.80</td><td class="down">-0.72%</td><td>20.91</td><td>19.38</td><td>17.86</td><td>0.51%</td><td>14.14%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>601985</td><td>中国核电</td><td>8.86</td><td class="down">-0.56%</td><td>9.14</td><td>8.98</td><td>8.81</td><td>3.22%</td><td>0.53%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>000828</td><td>东莞控股</td><td>10.04</td><td class="down">-0.59%</td><td>10.29</td><td>10.13</td><td>9.98</td><td>2.45%</td><td>0.62%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600795</td><td>国电电力</td><td>5.19</td><td class="down">-1.14%</td><td>5.41</td><td>5.28</td><td>5.15</td><td>4.17%</td><td>0.72%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600887</td><td>伊利股份</td><td>26.77</td><td class="up">+0.45%</td><td>26.97</td><td>26.55</td><td>26.13</td><td>0.73%</td><td>2.38%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600900</td><td>长江电力</td><td>28.02</td><td class="down">-0.28%</td><td>28.75</td><td>28.26</td><td>27.78</td><td>2.59%</td><td>0.87%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>000651</td><td>格力电器</td><td>38.18</td><td class="up">+0.47%</td><td>39.49</td><td>38.66</td><td>37.82</td><td>3.43%</td><td>0.94%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600031</td><td>三一重工</td><td>17.72</td><td class="down">-0.23%</td><td>21.02</td><td>19.29</td><td>17.55</td><td>18.63%</td><td>0.96%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>003816</td><td>中国广核</td><td>4.20</td><td class="down">-0.71%</td><td>4.41</td><td>4.28</td><td>4.16</td><td>4.95%</td><td>1.02%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600295</td><td>鄂尔多斯</td><td>13.02</td><td class="down">-2.11%</td><td>14.39</td><td>13.64</td><td>12.89</td><td>10.54%</td><td>1.02%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600025</td><td>华能水电</td><td>9.62</td><td class="down">-0.41%</td><td>9.92</td><td>9.72</td><td>9.51</td><td>3.13%</td><td>1.10%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>601021</td><td>春秋航空</td><td>41.88</td><td class="down">-0.14%</td><td>44.81</td><td>43.07</td><td>41.33</td><td>7.00%</td><td>1.31%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600522</td><td>中天科技</td><td>36.88</td><td class="down">-0.19%</td><td>37.37</td><td>34.45</td><td>31.52</td><td>1.33%</td><td>14.52%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600989</td><td>宝丰能源</td><td>23.21</td><td class="down">-2.07%</td><td>25.07</td><td>23.98</td><td>22.89</td><td>8.03%</td><td>1.39%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>688766</td><td>普冉股份</td><td>428.40</td><td class="up">+0.05%</td><td>435.14</td><td>399.91</td><td>364.69</td><td>1.57%</td><td>14.87%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600578</td><td>京能电力</td><td>5.34</td><td class="down">-0.74%</td><td>5.72</td><td>5.49</td><td>5.25</td><td>7.04%</td><td>1.59%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600919</td><td>江苏银行</td><td>12.09</td><td class="down">-0.33%</td><td>12.58</td><td>12.24</td><td>11.89</td><td>4.02%</td><td>1.61%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>001286</td><td>陕西能源</td><td>9.58</td><td class="down">-0.21%</td><td>9.86</td><td>9.64</td><td>9.42</td><td>2.97%</td><td>1.69%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>601628</td><td>中国人寿</td><td>38.69</td><td class="up">+1.76%</td><td>39.37</td><td>38.27</td><td>37.17</td><td>1.76%</td><td>3.94%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600309</td><td>万华化学</td><td>70.66</td><td class="up">+0.21%</td><td>79.36</td><td>74.38</td><td>69.39</td><td>12.32%</td><td>1.79%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>000933</td><td>神火股份</td><td>26.38</td><td class="up">+0.53%</td><td>28.43</td><td>27.17</td><td>25.91</td><td>7.78%</td><td>1.80%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>600132</td><td>重庆啤酒</td><td>38.18</td><td class="up">+0.18%</td><td>40.82</td><td>39.15</td><td>37.48</td><td>6.92%</td><td>1.84%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>002032</td><td>苏泊尔</td><td>39.30</td><td class="up">+0.13%</td><td>40.86</td><td>39.72</td><td>38.57</td><td>3.97%</td><td>1.85%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>300857</td><td>协创数据</td><td>273.35</td><td class="up">+0.09%</td><td>278.55</td><td>260.76</td><td>242.97</td><td>1.90%</td><td>11.11%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="alert"><td>301536</td><td>星宸科技</td><td>133.08</td><td class="up">+5.69%</td><td>135.68</td><td>120.32</td><td>104.95</td><td>1.96%</td><td>21.14%</td><td><span class="tag alert">重点提醒</span></td></tr>
+<tr class="watch"><td>600350</td><td>山东高速</td><td>10.00</td><td class="up">+0.60%</td><td>10.62</td><td>10.21</td><td>9.79</td><td>6.18%</td><td>2.07%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>600089</td><td>特变电工</td><td>18.21</td><td class="down">-0.49%</td><td>19.65</td><td>18.74</td><td>17.83</td><td>7.92%</td><td>2.08%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>600938</td><td>中国海油</td><td>33.09</td><td class="down">-1.34%</td><td>34.92</td><td>33.66</td><td>32.40</td><td>5.52%</td><td>2.09%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>000429</td><td>粤高速A</td><td>12.53</td><td class="up">+0.64%</td><td>13.56</td><td>12.91</td><td>12.27</td><td>8.23%</td><td>2.11%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>600707</td><td>彩虹股份</td><td>9.55</td><td class="down">-3.05%</td><td>9.76</td><td>9.00</td><td>8.24</td><td>2.18%</td><td>13.77%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601857</td><td>中国石油</td><td>10.79</td><td class="up">+1.12%</td><td>11.21</td><td>10.88</td><td>10.55</td><td>3.93%</td><td>2.21%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>600595</td><td>中孚实业</td><td>6.04</td><td class="up">+0.00%</td><td>6.57</td><td>6.24</td><td>5.91</td><td>8.81%</td><td>2.22%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>300012</td><td>华测检测</td><td>14.73</td><td class="up">+0.41%</td><td>15.18</td><td>14.79</td><td>14.39</td><td>3.08%</td><td>2.33%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>600406</td><td>国电南瑞</td><td>22.23</td><td class="up">+0.59%</td><td>23.32</td><td>22.51</td><td>21.70</td><td>4.89%</td><td>2.40%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601088</td><td>中国神华</td><td>47.51</td><td class="up">+1.52%</td><td>48.66</td><td>47.30</td><td>45.95</td><td>2.41%</td><td>3.29%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>301338</td><td>凯格精机</td><td>102.45</td><td class="down">-0.15%</td><td>105.06</td><td>99.52</td><td>93.97</td><td>2.55%</td><td>8.28%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>301421</td><td>波长光电</td><td>80.42</td><td class="down">-0.78%</td><td>82.53</td><td>77.35</td><td>72.16</td><td>2.63%</td><td>10.27%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601899</td><td>紫金矿业</td><td>31.41</td><td class="up">+0.35%</td><td>35.35</td><td>32.97</td><td>30.58</td><td>12.54%</td><td>2.63%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601001</td><td>晋控煤业</td><td>18.28</td><td class="up">+3.80%</td><td>18.77</td><td>17.25</td><td>15.73</td><td>2.67%</td><td>13.95%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>600886</td><td>国投电力</td><td>14.30</td><td class="up">+0.35%</td><td>14.72</td><td>14.22</td><td>13.71</td><td>2.95%</td><td>4.10%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601318</td><td>中国平安</td><td>54.46</td><td class="up">+0.89%</td><td>57.05</td><td>54.95</td><td>52.85</td><td>4.75%</td><td>2.96%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>002142</td><td>宁波银行</td><td>34.72</td><td class="down">-0.49%</td><td>35.75</td><td>34.61</td><td>33.46</td><td>2.97%</td><td>3.61%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601991</td><td>大唐发电</td><td>5.57</td><td class="down">-0.36%</td><td>6.02</td><td>5.71</td><td>5.40</td><td>8.15%</td><td>3.00%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>000725</td><td>京东方A</td><td>6.00</td><td class="down">-1.15%</td><td>6.18</td><td>5.70</td><td>5.21</td><td>3.07%</td><td>13.16%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>600036</td><td>招商银行</td><td>40.82</td><td class="down">-0.54%</td><td>42.09</td><td>40.81</td><td>39.52</td><td>3.11%</td><td>3.18%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>603885</td><td>吉祥航空</td><td>10.10</td><td class="down">-0.49%</td><td>10.54</td><td>10.16</td><td>9.78</td><td>4.37%</td><td>3.13%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>600096</td><td>云天化</td><td>28.24</td><td class="down">-0.14%</td><td>32.54</td><td>29.92</td><td>27.30</td><td>15.22%</td><td>3.32%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>002648</td><td>卫星化学</td><td>26.96</td><td class="down">-0.99%</td><td>28.73</td><td>27.39</td><td>26.06</td><td>6.55%</td><td>3.35%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>000807</td><td>云铝股份</td><td>26.95</td><td class="up">+0.67%</td><td>28.34</td><td>27.18</td><td>26.01</td><td>5.16%</td><td>3.49%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>000600</td><td>建投能源</td><td>7.32</td><td class="down">-0.27%</td><td>7.94</td><td>7.50</td><td>7.06</td><td>8.52%</td><td>3.50%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601199</td><td>江南水务</td><td>6.68</td><td class="up">+1.06%</td><td>6.92</td><td>6.25</td><td>5.58</td><td>3.54%</td><td>16.44%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>002202</td><td>金风科技</td><td>17.97</td><td class="down">-0.88%</td><td>19.09</td><td>18.21</td><td>17.32</td><td>6.24%</td><td>3.60%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>000338</td><td>潍柴动力</td><td>27.03</td><td class="down">-0.18%</td><td>28.01</td><td>26.80</td><td>25.58</td><td>3.63%</td><td>5.35%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>000830</td><td>鲁西化工</td><td>11.90</td><td class="down">-0.67%</td><td>13.33</td><td>12.39</td><td>11.45</td><td>12.03%</td><td>3.75%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601919</td><td>中远海控</td><td>16.56</td><td class="down">-0.90%</td><td>17.19</td><td>16.47</td><td>15.75</td><td>3.82%</td><td>4.91%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>002714</td><td>牧原股份</td><td>41.86</td><td class="down">-1.23%</td><td>44.07</td><td>42.15</td><td>40.22</td><td>5.29%</td><td>3.91%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601898</td><td>中煤能源</td><td>14.23</td><td class="down">-0.28%</td><td>15.85</td><td>14.76</td><td>13.67</td><td>11.35%</td><td>3.92%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601225</td><td>陕西煤业</td><td>26.03</td><td class="up">+1.28%</td><td>27.32</td><td>26.16</td><td>25.00</td><td>4.95%</td><td>3.94%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>600546</td><td>山煤国际</td><td>13.64</td><td class="up">+0.22%</td><td>14.19</td><td>13.47</td><td>12.76</td><td>4.00%</td><td>6.47%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>002053</td><td>云南能投</td><td>9.55</td><td class="down">-1.75%</td><td>10.02</td><td>9.60</td><td>9.17</td><td>4.95%</td><td>4.01%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601231</td><td>环旭电子</td><td>26.89</td><td class="up">+1.40%</td><td>27.99</td><td>26.24</td><td>24.48</td><td>4.11%</td><td>8.98%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>603993</td><td>洛阳钼业</td><td>17.81</td><td class="up">+1.25%</td><td>19.78</td><td>18.43</td><td>17.08</td><td>11.05%</td><td>4.11%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>603459</td><td>红板科技</td><td>89.80</td><td class="down">-1.97%</td><td>93.52</td><td>89.05</td><td>84.57</td><td>4.14%</td><td>5.82%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601838</td><td>成都银行</td><td>18.99</td><td class="down">-0.68%</td><td>19.97</td><td>19.07</td><td>18.16</td><td>5.18%</td><td>4.36%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>600415</td><td>小商品城</td><td>11.85</td><td class="down">-0.67%</td><td>13.28</td><td>12.30</td><td>11.33</td><td>12.05%</td><td>4.39%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>600460</td><td>士兰微</td><td>33.40</td><td class="up">+0.39%</td><td>34.92</td><td>31.79</td><td>28.66</td><td>4.55%</td><td>14.20%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class="watch"><td>601138</td><td>工业富联</td><td>63.30</td><td class="down">-0.47%</td><td>66.27</td><td>63.25</td><td>60.24</td><td>4.69%</td><td>4.84%</td><td><span class="tag watch">关注</span></td></tr>
+<tr class=""><td>002463</td><td>沪电股份</td><td>125.14</td><td class="down">-0.68%</td><td>131.55</td><td>123.18</td><td>114.81</td><td>5.12%</td><td>8.26%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>000408</td><td>藏格矿业</td><td>73.50</td><td class="up">+1.65%</td><td>80.13</td><td>74.93</td><td>69.72</td><td>9.02%</td><td>5.14%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>600276</td><td>恒瑞医药</td><td>45.72</td><td class="down">-0.70%</td><td>48.18</td><td>45.12</td><td>42.07</td><td>5.39%</td><td>7.99%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>600188</td><td>兖矿能源</td><td>20.35</td><td class="down">-0.44%</td><td>23.51</td><td>21.37</td><td>19.23</td><td>15.53%</td><td>5.51%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>600256</td><td>广汇能源</td><td>7.00</td><td class="down">-0.99%</td><td>7.39</td><td>6.82</td><td>6.25</td><td>5.53%</td><td>10.69%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>601872</td><td>招商轮船</td><td>21.48</td><td class="down">-6.24%</td><td>22.69</td><td>19.89</td><td>17.09</td><td>5.62%</td><td>20.45%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>000983</td><td>山西焦煤</td><td>6.62</td><td class="up">+0.30%</td><td>7.56</td><td>6.90</td><td>6.25</td><td>14.21%</td><td>5.64%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>603979</td><td>金诚信</td><td>74.88</td><td class="up">+1.82%</td><td>84.89</td><td>77.77</td><td>70.65</td><td>13.37%</td><td>5.65%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>600183</td><td>生益科技</td><td>143.45</td><td class="down">-1.93%</td><td>155.72</td><td>145.43</td><td>135.13</td><td>8.55%</td><td>5.80%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>601699</td><td>潞安环能</td><td>15.75</td><td class="up">+0.90%</td><td>17.78</td><td>16.29</td><td>14.80</td><td>12.88%</td><td>6.04%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>600362</td><td>江西铜业</td><td>45.10</td><td class="up">+1.94%</td><td>50.87</td><td>46.51</td><td>42.16</td><td>12.79%</td><td>6.53%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>601869</td><td>长飞光纤</td><td>456.60</td><td class="down">-0.52%</td><td>489.30</td><td>431.26</td><td>373.23</td><td>7.16%</td><td>18.26%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>300285</td><td>国瓷材料</td><td>66.20</td><td class="down">-1.75%</td><td>71.18</td><td>64.87</td><td>58.56</td><td>7.52%</td><td>11.54%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>002602</td><td>世纪华通</td><td>14.62</td><td class="up">+0.07%</td><td>16.31</td><td>14.82</td><td>13.34</td><td>11.53%</td><td>8.78%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>688372</td><td>伟测科技</td><td>115.58</td><td class="down">-1.37%</td><td>130.85</td><td>117.89</td><td>104.94</td><td>13.21%</td><td>9.21%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>002432</td><td>九安医疗</td><td>64.35</td><td class="up">+0.89%</td><td>72.52</td><td>65.13</td><td>57.74</td><td>12.69%</td><td>10.27%</td><td><span class="tag norm">正常</span></td></tr>
+<tr class=""><td>002081</td><td>金螳螂</td><td>5.23</td><td class="up">+1.36%</td><td>6.00</td><td>5.23</td><td>4.46</td><td>14.76%</td><td>14.78%</td><td><span class="tag norm">正常</span></td></tr>
+  </table>
+
+  <div id="chart"></div>
+
+  <div class="news">
+    <h2>📢 重点提醒股票 · 近期公告</h2>
+    <p><b>600295 鄂尔多斯</b></p><ul><li>【2026-09-12】<b>鄂尔多斯:内蒙古鄂尔多斯资源股份有限公司关于2026年半年度业绩说明会召开情况的公告</b></li><li>【2026-09-04】<b>鄂尔多斯:内蒙古鄂尔多斯资源股份有限公司关于召开2026年半年度网上业绩说明会的公告</b></li><li>【2026-09-03】<b>鄂尔多斯:内蒙古鄂尔多斯资源股份有限公司投资者关系活动记录表(2026年9月2日)</b></li></ul><p><b>688766 普冉股份</b></p><ul><li>【2026-09-22】<b>普冉股份:2026-005普冉半导体(上海)股份有限公司投资者关系活动记录表(2026年9月21日)</b></li><li>【2026-09-21】<b>6-3会计师事务所关于普冉半导体(上海)股份有限公司发行股份、可转换公司债券及支付现金购买资产并募集配套资金申请的审核问询函中相关财务问题的专项核查意见(普冉半导体(上海)股份有限公司)</b></li><li>【2026-09-21】<b>6-5评估机构关于普冉半导体(上海)股份有限公司发行股份、可转换公司债券及支付现金购买资产并募集配套资金申请的审核问询函中资产评估相关问题回复核查意见(普冉半导体(上海)股份有限公司)</b></li></ul><p><b>301536 星宸科技</b></p><ul><li>【2026-09-18】<b>星宸科技:关于2024年限制性股票激励计划第二个归属期归属结果暨股份上市的公告</b></li><li>【2026-09-18】<b>星宸科技:关于2025年限制性股票激励计划首次授予第一个归属期归属结果暨股份上市的公告</b></li><li>【2026-09-11】<b>星宸科技:中国国际金融股份有限公司关于星宸科技股份有限公司2026年半年度跟踪报告</b></li></ul><p><b>300857 协创数据</b></p><ul><li>【2026-09-21】<b>协创数据:关于公司融资租赁业务的进展暨以应收账款追加质押的公告</b></li><li>【2026-09-18】<b>协创数据:关于控股股东部分股份质押及解除质押的公告</b></li><li>【2026-09-17】<b>协创数据:关于公司及全资子公司开展融资租赁业务暨公司为全资子公司提供担保的进展公告</b></li></ul><p><b>600487 亨通光电</b></p><ul><li>【2026-09-15】<b>亨通光电:亨通光电关于回购注销部分限制性股票并减少注册资本通知债权人的公告</b></li><li>【2026-09-15】<b>亨通光电:亨通光电2026年第四次临时股东会决议公告</b></li><li>【2026-09-15】<b>亨通光电:安徽承义律师事务所关于江苏亨通光电股份有限公司召开2026年第四次临时股东会的法律意见书</b></li></ul><p><b>600522 中天科技</b></p><ul><li>【2026-09-02】<b>中天科技:江苏中天科技股份有限公司关于第六期以集中竞价交易方式股份回购进展公告</b></li><li>【2026-09-02】<b>中天科技:江苏中天科技股份有限公司关于召开2026年半年度业绩说明会的公告</b></li><li>【2026-08-28】<b>中天科技:江苏中天科技股份有限公司关于2026年半年度募集资金存放、管理与实际使用情况的专项报告</b></li></ul><p><b>688123 聚辰股份</b></p><ul><li>【2026-09-10】<b>聚辰股份:聚辰股份关于参加2026年上海辖区上市公司集体接待日暨中报业绩说明会的公告</b></li><li>【2026-09-01】<b>聚辰股份:聚辰股份关于2022年限制性股票激励计划预留授予部分第四个归属期归属结果暨股份上市的公告</b></li><li>【2026-08-29】<b>聚辰股份:聚辰股份关于参加科创板2026年半年度芯片设计行业集体业绩说明会的公告</b></li></ul><p><b>002185 华天科技</b></p><ul><li>【2026-09-12】<b>华天科技:关于开展外汇套期保值业务的可行性分析</b></li><li>【2026-09-12】<b>华天科技:第八届董事会第十八次会议决议公告</b></li><li>【2026-09-12】<b>华天科技:关于开展外汇套期保值业务的公告</b></li></ul><p><b>688385 复旦微电</b></p><ul><li>【2026-09-17】<b>复旦微电:2026年第三次临时股东会决议公告</b></li><li>【2026-09-17】<b>复旦微电:上海市锦天城律师事务所关于上海复旦微电子集团股份有限公司2026年第三次临时股东会之法律意见书</b></li><li>【2026-08-29】<b>复旦微电:关于获得政府补助的公告</b></li></ul><p><b>600699 均胜电子</b></p><ul><li>【2026-09-07】<b>均胜电子:2026年9月4日均胜电子投资者关系活动记录表</b></li><li>【2026-09-05】<b>均胜电子:H股公告(截至2026年8月31日止之股份发行人的证券变动月报表)</b></li><li>【2026-08-26】<b>均胜电子:均胜电子第十二届董事会第六次会议决议公告</b></li></ul><p><b>603345 安井食品</b></p><ul><li>【2026-09-16】<b>安井食品:上海市方达律师事务所关于安井食品集团股份有限公司2026年半年度差异化分红事项之法律意见书</b></li><li>【2026-09-16】<b>安井食品:安井食品2026年半年度权益分派实施公告</b></li><li>【2026-09-12】<b>安井食品:安井食品2026年第一次临时股东会会议资料</b></li></ul><p><b>001286 陕西能源</b></p><ul><li>【2026-09-21】<b>陕西能源:兴业证券股份有限公司关于陕西能源投资集团股份有限公司变更公司名称暨完成工商变更登记的临时受托管理事务报告</b></li><li>【2026-09-15】<b>陕西能源:陕西能源投资集团股份有限公司关于变更公司名称暨完成工商变更登记的公告</b></li><li>【2026-09-15】<b>陕西能源:关于变更公司名称暨完成工商变更登记的公告</b></li></ul><p><b>600989 宝丰能源</b></p><ul><li>【2026-08-26】<b>宝丰能源:北京市嘉源律师事务所关于宁夏宝丰能源集团股份有限公司差异化分红事项的核查意见</b></li><li>【2026-08-26】<b>宝丰能源:宁夏宝丰能源集团股份有限公司2026年半年度权益分派实施公告</b></li><li>【2026-08-20】<b>宝丰能源:宁夏宝丰能源集团股份有限公司关于召开2026年半年度业绩说明会的公告</b></li></ul><p><b>600309 万华化学</b></p><ul><li>【2026-09-22】<b>万华化学:万华化学关于持股5%以上股东部分股份解除质押公告</b></li><li>【2026-09-19】<b>万华化学:万华化学2026年半年度业绩说明会公告</b></li><li>【2026-09-07】<b>万华化学:万华化学2026年半年度权益分派实施公告</b></li></ul><p><b>000828 东莞控股</b></p><ul><li>【2026-09-23】<b>东莞控股:关于与专业投资机构共同投资设立产业基金的公告</b></li><li>【2026-09-23】<b>东莞控股:关于召开2026年第四次临时股东会的通知</b></li><li>【2026-09-23】<b>东莞控股:东莞发展控股股份有限公司内部控制管理制度</b></li></ul><p><b>600887 伊利股份</b></p><ul><li>【2026-09-17】<b>伊利股份:内蒙古伊利实业集团股份有限公司关于以集中竞价交易方式回购公司股份的回购报告书</b></li><li>【2026-09-17】<b>伊利股份:北京天驰君泰律师事务所关于内蒙古伊利实业集团股份有限公司2026年第一次临时股东会的法律意见书</b></li><li>【2026-09-17】<b>伊利股份:内蒙古伊利实业集团股份有限公司关于回购股份减少注册资本通知债权人的公告</b></li></ul><p><b>600578 京能电力</b></p><ul><li>【2026-09-12】<b>京能电力:关于公司独立董事辞职公告</b></li><li>【2026-08-28】<b>京能电力:关于召开2026年半年度业绩说明会的公告</b></li><li>【2026-08-22】<b>京能电力:关于对京能集团财务有限公司风险评估报告的公告</b></li></ul><p><b>000933 神火股份</b></p><ul><li>【2026-09-15】<b>神火股份:河南神火煤电股份有限公司董事会第十届六次会议决议公告</b></li><li>【2026-09-15】<b>神火股份:河南神火煤电股份有限公司关于注销控股子公司上海神火国际贸易有限公司暨关联交易的公告</b></li><li>【2026-09-08】<b>神火股份:河南神火煤电股份有限公司董事会第十届五次会议决议公告</b></li></ul><p><b>600900 长江电力</b></p><ul><li>【2026-08-31】<b>长江电力:长江电力2026年半年度报告摘要</b></li><li>【2026-08-31】<b>长江电力:长江电力关于三峡财务有限责任公司的风险持续评估报告</b></li><li>【2026-08-31】<b>长江电力:长江电力2026年半年度报告</b></li></ul><p><b>002039 黔源电力</b></p><ul><li>【2026-09-22】<b>黔源电力:2026年半年度权益分派实施公告</b></li><li>【2026-09-21】<b>黔源电力:贵州黔源电力股份有限公司2026年面向专业投资者公开发行碳中和绿色科技创新乡村振兴公司债券(第一期)(生物多样性挂钩)(支持生态文明建设先行区)在深圳证券交易所上市的公告</b></li><li>【2026-09-14】<b>黔源电力:贵州黔源电力股份有限公司2026年面向专业投资者公开发行碳中和绿色科技创新乡村振兴公司债券(第一期)(生物多样性挂钩)(支持生态文明建设先行区)发行结果公告</b></li></ul><p><b>600236 桂冠电力</b></p><ul><li>【2026-09-11】<b>桂冠电力:广西桂冠电力股份有限公司2026年半年度权益分派实施公告</b></li><li>【2026-08-28】<b>桂冠电力:广西桂冠电力股份有限公司2026年第二次临时股东会决议公告</b></li><li>【2026-08-28】<b>桂冠电力:上海东方华银律师事务所关于广西桂冠电力股份有限公司2026年第二次临时股东会的法律意见书</b></li></ul><p><b>600690 海尔智家</b></p><ul><li>【2026-09-12】<b>海尔智家:海尔智家股份有限公司关于以集中竞价交易方式回购A股股份的进展公告</b></li><li>【2026-09-03】<b>海尔智家:海尔智家股份有限公司关于自愿公开回购境外上市外资股(D股)的提示性公告</b></li><li>【2026-09-01】<b>海尔智家:海尔智家股份有限公司关于部分回购股份注销完成暨股份变动的公告</b></li></ul><p><b>600919 江苏银行</b></p><ul><li>【2026-08-20】<b>江苏银行:江苏银行董事会决议公告</b></li><li>【2026-08-20】<b>江苏银行:江苏银行关于召开2026年半年度业绩说明会的公告</b></li><li>【2026-08-20】<b>江苏银行:江苏银行2026年半年度报告</b></li></ul><p><b>000333 美的集团</b></p><ul><li>【2026-09-15】<b>美的集团:2026年9月15日投资者关系活动记录表</b></li><li>【2026-09-11】<b>美的集团:关于参加2026年广东辖区投资者集体接待日暨辖区上市公司半年度报告业绩说明会活动的公告</b></li><li>【2026-09-03】<b>美的集团:关于2026年A股持股计划非交易过户完成的公告</b></li></ul><p><b>000651 格力电器</b></p><ul><li>【2026-09-15】<b>格力电器:2026年半年度网上业绩说明会投资者关系活动记录表</b></li><li>【2026-09-02】<b>格力电器:关于股份回购进展情况的公告</b></li><li>【2026-08-27】<b>格力电器:关于子公司之间提供担保的公告</b></li></ul><p><b>601021 春秋航空</b></p><ul><li>【2026-09-18】<b>春秋航空:北京市嘉源律师事务所关于春秋航空股份有限公司差异化分红事项之专项法律意见书</b></li><li>【2026-09-18】<b>春秋航空:春秋航空2026年半年度权益分派实施公告</b></li><li>【2026-09-16】<b>春秋航空:春秋航空2026年8月份主要运营数据公告-2026-045</b></li></ul><p><b>600031 三一重工</b></p><ul><li>【2026-09-17】<b>三一重工:三一重工股份有限公司关于回购公司A股股份的进展公告</b></li><li>【2026-09-17】<b>三一重工:H股公告-翌日披露报表</b></li><li>【2026-09-16】<b>三一重工:三一重工股份有限公司关于控股股东2020年非公开发行可交换公司债券完成摘牌的公告</b></li></ul><p><b>600795 国电电力</b></p><ul><li>【2026-08-20】<b>国电电力:国电电力关于启动收购控股股东部分资产的公告</b></li><li>【2026-08-18】<b>国电电力:国电电力信息披露管理制度(2026.08)</b></li><li>【2026-08-18】<b>国电电力:国电电力八届四十四次董事会决议公告</b></li></ul><p><b>002032 苏泊尔</b></p><ul><li>【2026-09-23】<b>苏泊尔:第九届董事会第三次会议决议公告</b></li><li>【2026-09-23】<b>苏泊尔:董事会薪酬与考核委员会关于公司股票期权激励计划相关事项的审查意见</b></li><li>【2026-09-23】<b>苏泊尔:关于2024年股票期权激励计划第一个行权期行权条件成就的公告</b></li></ul><p><b>600132 重庆啤酒</b></p><ul><li>【2026-09-16】<b>重庆啤酒:重庆啤酒股份有限公司关于参加“重庆辖区上市公司2026年投资者网上集体接待日暨半年度业绩说明会活动”的公告</b></li><li>【2026-08-22】<b>重庆啤酒:重庆啤酒股份有限公司关于召开2026年半年度业绩说明会的公告</b></li><li>【2026-08-20】<b>重庆啤酒:重庆啤酒股份有限公司2026年半年度报告</b></li></ul><p><b>601628 中国人寿</b></p><ul><li>【2026-09-03】<b>中国人寿:中国人寿2026年第二次临时股东会会议资料</b></li><li>【2026-09-03】<b>中国人寿:中国人寿关于召开2026年第二次临时股东会的通知</b></li><li>【2026-08-28】<b>中国人寿:中国人寿第八届董事会第三十二次会议决议公告</b></li></ul><p><b>003816 中国广核</b></p><ul><li>【2026-09-19】<b>中国广核:关于董事会延期换届的公告</b></li><li>【2026-09-18】<b>中国广核:关于公司2026年度第七期及第八期中期票据发行完成的公告</b></li><li>【2026-09-05】<b>中国广核:关于招远2号机组即将开始全面建设的公告</b></li></ul><p><b>601985 中国核电</b></p><ul><li>【2026-09-09】<b>中国核电:中国核电关于召开2026年半年度业绩说明会的公告</b></li><li>【2026-09-08】<b>中国核电:中国核电关于取得金融机构股票回购贷款承诺函的公告</b></li><li>【2026-09-04】<b>中国核电:中国核电关于以集中竞价交易方式回购股份的回购报告书</b></li></ul><p><b>600025 华能水电</b></p><ul><li>【2026-09-17】<b>华能水电:2026年度第十一期超短期融资券发行公告</b></li><li>【2026-08-27】<b>华能水电:2026年度第十一期绿色超短期融资券(乡村振兴)和第十二期绿色中期票据发行公告</b></li><li>【2026-08-26】<b>华能水电:关于第四届董事会第十八次会议决议公告</b></li></ul>
+  </div>
+
+  <div class="disclaimer">
+    <b>免责声明：</b>以上内容基于公开数据和量化分析，仅供参考，不构成投资建议。市场有风险，投资需谨慎。
+    任何投资决策应结合个人风险承受能力、资金状况和投资目标独立判断，必要时咨询持牌专业机构。过往表现不预示未来收益。
+  </div>
+</div>
+
+<script>
+var names = ["688123 聚辰股份", "600487 亨通光电", "688385 复旦微电", "002185 华天科技", "000333 美的集团", "002039 黔源电力", "600690 海尔智家", "600236 桂冠电力", "603345 安井食品", "600699 均胜电子", "601985 中国核电", "000828 东莞控股", "600795 国电电力", "600887 伊利股份", "600900 长江电力", "000651 格力电器", "600031 三一重工", "003816 中国广核", "600295 鄂尔多斯", "600025 华能水电", "601021 春秋航空", "600522 中天科技", "600989 宝丰能源", "688766 普冉股份", "600578 京能电力", "600919 江苏银行", "001286 陕西能源", "601628 中国人寿", "600309 万华化学", "000933 神火股份", "600132 重庆啤酒", "002032 苏泊尔", "300857 协创数据", "301536 星宸科技", "600350 山东高速", "600089 特变电工", "600938 中国海油", "000429 粤高速A", "600707 彩虹股份", "601857 中国石油", "600595 中孚实业", "300012 华测检测", "600406 国电南瑞", "601088 中国神华", "301338 凯格精机", "301421 波长光电", "601899 紫金矿业", "601001 晋控煤业", "600886 国投电力", "601318 中国平安", "002142 宁波银行", "601991 大唐发电", "000725 京东方A", "600036 招商银行", "603885 吉祥航空", "600096 云天化", "002648 卫星化学", "000807 云铝股份", "000600 建投能源", "601199 江南水务", "002202 金风科技", "000338 潍柴动力", "000830 鲁西化工", "601919 中远海控", "002714 牧原股份", "601898 中煤能源", "601225 陕西煤业", "600546 山煤国际", "002053 云南能投", "601231 环旭电子", "603993 洛阳钼业", "603459 红板科技", "601838 成都银行", "600415 小商品城", "600460 士兰微", "601138 工业富联", "002463 沪电股份", "000408 藏格矿业", "600276 恒瑞医药", "600188 兖矿能源", "600256 广汇能源", "601872 招商轮船", "000983 山西焦煤", "603979 金诚信", "600183 生益科技", "601699 潞安环能", "600362 江西铜业", "601869 长飞光纤", "300285 国瓷材料", "002602 世纪华通", "688372 伟测科技", "002432 九安医疗", "002081 金螳螂"];
+var up = [-7.5, -0.43, -0.27, -0.19, 8.09, 2.51, 9.27, 6.34, 0.46, 0.51, 3.22, 2.45, 4.17, 0.73, 2.59, 3.43, 18.63, 4.95, 10.54, 3.13, 7.0, 1.33, 8.03, 1.57, 7.04, 4.02, 2.97, 1.76, 12.32, 7.78, 6.92, 3.97, 1.9, 1.96, 6.18, 7.92, 5.52, 8.23, 2.18, 3.93, 8.81, 3.08, 4.89, 2.41, 2.55, 2.63, 12.54, 2.67, 2.95, 4.75, 2.97, 8.15, 3.07, 3.11, 4.37, 15.22, 6.55, 5.16, 8.52, 3.54, 6.24, 3.63, 12.03, 3.82, 5.29, 11.35, 4.95, 4.0, 4.95, 4.11, 11.05, 4.14, 5.18, 12.05, 4.55, 4.69, 5.12, 9.02, 5.39, 15.53, 5.53, 5.62, 14.21, 13.37, 8.55, 12.88, 12.79, 7.16, 7.52, 11.53, 13.21, 12.69, 14.76];
+var low = [-31.21, -17.3, -16.85, -17.51, 0.01, -0.18, -0.27, -0.37, -8.7, -14.14, -0.53, -0.62, -0.72, -2.38, -0.87, -0.94, -0.96, -1.02, -1.02, -1.1, -1.31, -14.52, -1.39, -14.87, -1.59, -1.61, -1.69, -3.94, -1.79, -1.8, -1.84, -1.85, -11.11, -21.14, -2.07, -2.08, -2.09, -2.11, -13.77, -2.21, -2.22, -2.33, -2.4, -3.29, -8.28, -10.27, -2.63, -13.95, -4.1, -2.96, -3.61, -3.0, -13.16, -3.18, -3.13, -3.32, -3.35, -3.49, -3.5, -16.44, -3.6, -5.35, -3.75, -4.91, -3.91, -3.92, -3.94, -6.47, -4.01, -8.98, -4.11, -5.82, -4.36, -4.39, -14.2, -4.84, -8.26, -5.14, -7.99, -5.51, -10.69, -20.45, -5.64, -5.65, -5.8, -6.04, -6.53, -18.26, -11.54, -8.78, -9.21, -10.27, -14.78];
+var colors = [["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#e74c3c", "#e74c3c"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#f39c12", "#f39c12"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"], ["#95a5a6", "#95a5a6"]];
+var chart = echarts.init(document.getElementById('chart'));
+chart.setOption({
+  title: { text: '距 BOLL 轨道距离（%）— 上轨为正/下轨为负，越接近 0 越需关注', left: 10, top: 6, textStyle: { fontSize: 14, color: '#34495e' } },
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' },
+    formatter: function (ps) {
+      var i = ps[0].dataIndex, s = names[i] + '<br>';
+      s += '距上轨: ' + (up[i] == null ? '—' : up[i].toFixed(2) + '%') + '<br>';
+      s += '距下轨: ' + (low[i] == null ? '—' : low[i].toFixed(2) + '%');
+      return s;
+    } },
+  grid: { left: 10, right: 20, top: 48, bottom: 110, containLabel: true },
+  xAxis: { type: 'category', data: names,
+    axisLabel: { rotate: 90, fontSize: 10, interval: 0, color: '#5d6d7e' } },
+  yAxis: { type: 'value', name: '%', axisLabel: { formatter: '{value}%' } },
+  series: [
+    { name: '距上轨', type: 'bar', stack: 'd', data: up, itemStyle: { color: function(p) { return colors[p.dataIndex][0]; } } },
+    { name: '距下轨', type: 'bar', stack: 'd', data: low, itemStyle: { color: function(p) { return colors[p.dataIndex][1]; } } }
+  ]
+});
+window.addEventListener('resize', function () { chart.resize(); });
+</script>
+</body>
+</html>
