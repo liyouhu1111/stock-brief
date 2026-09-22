@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+site/*
+!site/briefs/
+data/boll_result.json
+data/news_data.json
+data/latest_brief.txt
+fetch_log.txt

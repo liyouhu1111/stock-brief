@@ -1,0 +1,70 @@
+name: 自选股每日收盘简报
+
+on:
+  schedule:
+    # UTC 08:05 = 北京时间 16:05，周一至周五（A股收盘后）
+    - cron: "5 8 * * 1-5"
+  workflow_dispatch: {}   # 支持在 GitHub 页面手动触发测试
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装依赖
+        run: pip install requests
+
+      - name: 采集行情并计算 BOLL
+        run: python scripts/fetch_quotes.py
+
+      - name: 采集重点提醒股票公告
+        run: python scripts/fetch_news.py
+
+      - name: 生成简报网页
+        run: python scripts/gen_brief.py
+
+      - name: 微信推送
+        env:
+          WXPUSHER_TOKEN: ${{ secrets.WXPUSHER_TOKEN }}
+          WXPUSHER_UIDS: ${{ secrets.WXPUSHER_UIDS }}
+        run: python scripts/push_wxpusher.py
+
+      - name: 提交滚动行情库与简报
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/kline_data.json data/news_data.json site/briefs/ || true
+          git commit -m "简报更新 $(TZ=Asia/Shanghai date +%F)" || echo "no changes"
+          git push
+
+      - name: 上传站点产物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 启用并部署 GitHub Pages
+        id: deployment
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: 部署 Pages
+        uses: actions/deploy-pages@v4
