@@ -49,8 +49,18 @@ HTML_HEAD = """<!DOCTYPE html>
   .news {{ background:#fff; border-radius:10px; box-shadow:0 1px 4px rgba(0,0,0,.06);
           padding:16px 22px; margin-bottom:20px; }}
   .news h2 {{ font-size:16px; margin:0 0 10px; }}
-  .news li {{ font-size:13px; line-height:1.9; color:#4a5763; }}
-  .news b {{ color:#2c3e50; }}
+  .news .note {{ font-size:12px; color:#8a97a5; margin:0 0 12px; }}
+  .news-grid {{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }}
+  .news-card {{ background:#fbfcfd; border:1px solid #e8edf2; border-radius:8px; padding:12px 14px; }}
+  .news-head {{ display:flex; align-items:center; gap:8px; margin-bottom:8px; }}
+  .news-code {{ color:#8a97a5; font-size:12px; font-family:Consolas,monospace; }}
+  .news-name {{ font-weight:700; font-size:14px; color:#2c3e50; }}
+  .news-tag {{ margin-left:auto; }}
+  .news-list {{ list-style:none; margin:0; padding:0; }}
+  .news-list li {{ font-size:13px; line-height:1.7; color:#4a5763; padding:6px 0;
+                  border-top:1px dashed #e8edf2; }}
+  .news-date {{ display:inline-block; min-width:52px; color:#c0392b; font-weight:600;
+               font-family:Consolas,monospace; font-size:12px; }}
   .news .empty {{ color:#95a5a6; font-size:13px; }}
   .disclaimer {{ font-size:12px; color:#8a97a5; line-height:1.8; background:#eef1f5;
                 border-radius:10px; padding:14px 18px; }}
@@ -77,8 +87,11 @@ HTML_HEAD = """<!DOCTYPE html>
   <div id="chart"></div>
 
   <div class="news">
-    <h2>📢 重点提醒股票 · 近期公告</h2>
+    <h2>📢 近期重大新闻（仅列有公告个股）</h2>
+    <p class="note">来源：东方财富公告接口；未检索到公告的个股不列示，不代表无事件。卡片顺序与明细表排序一致（档位 → 接近轨道 → 距离由近到远）。</p>
+    <div class="news-grid">
     {news_html}
+    </div>
   </div>
 
   <div class="disclaimer">
@@ -172,15 +185,24 @@ def main():
         else:
             chart_colors.append(["#95a5a6", "#95a5a6"])
 
-    parts = []
-    for code, items in news.items():
-        name = result.get(code, {}).get("name", code)
-        if items:
-            lis = "".join(f"<li>【{d}】<b>{t}</b></li>" for d, t in items)
-            parts.append(f"<p><b>{code} {name}</b></p><ul>{lis}</ul>")
-        else:
-            parts.append(f"<p><b>{code} {name}</b></p><ul><li class='empty'>近期无重大公告</li></ul>")
-    news_html = "".join(parts) if parts else "<p class='empty'>本期无重点提醒股票公告数据</p>"
+    news_items = []
+    for code, v in order:
+        items = news.get(code, [])
+        if not items:
+            continue
+        name = v["name"]
+        tag_cls = {"重点提醒": "alert", "关注": "watch"}.get(v["tag"], "norm")
+        lis = "".join(
+            f'<li><span class="news-date">{str(d)[-5:] if len(str(d)) > 5 else d}</span>{t}</li>'
+            for d, t in items)
+        news_items.append(
+            f'<div class="news-card"><div class="news-head">'
+            f'<span class="news-code">{code}</span>'
+            f'<span class="news-name">{name}</span>'
+            f'<span class="tag {tag_cls} news-tag">{v["tag"]}</span></div>'
+            f'<ul class="news-list">{lis}</ul></div>')
+    news_html = ("\n".join(news_items) if news_items
+                 else "<p class='empty'>本期未采集到相关公告。</p>")
 
     html = HTML_HEAD.format(
         date=date, total=len(result), n_alert=n_alert, n_alert_up=n_alert_up,
