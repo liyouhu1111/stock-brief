@@ -59,19 +59,29 @@ def main():
     repo = os.environ.get("GITHUB_REPOSITORY", "")
     url = f"https://{repo.split('/')[0]}.github.io/{repo.split('/')[1]}/{brief_file}" if repo and brief_file else ""
 
+    def side_of(v):
+        return "上" if v["dist_up"] <= v["dist_low"] else "下"
+
+    def dist_of(v):
+        return v["dist_up"] if v["dist_up"] <= v["dist_low"] else v["dist_low"]
+
     alerts = sorted(((c, v) for c, v in result.items() if v["tag"] == "重点提醒"),
-                    key=lambda kv: min(kv[1]["dist_up"], kv[1]["dist_low"]))
-    watch = [(c, v) for c, v in result.items() if v["tag"] == "关注"]
+                    key=lambda kv: (0 if side_of(kv[1]) == "上" else 1, dist_of(kv[1])))
+    watch = sorted(((c, v) for c, v in result.items() if v["tag"] == "关注"),
+                   key=lambda kv: dist_of(kv[1]))
+    n_up = sum(1 for _, v in alerts if side_of(v) == "上")
 
     parts = [f"<h3>📈 自选股简报｜{date}</h3>",
-             f"<p>监控 {len(result)} 只 · 🔴重点提醒 {len(alerts)} · 🟠关注 {len(watch)}</p>",
-             "<h4>🔴 重点提醒（距 BOLL 轨道 <2%）</h4><ul>"]
+             f"<p>监控 {len(result)} 只 · 🔴重点提醒 {len(alerts)}"
+             f"（🔺近上轨 {n_up} / 🔻近下轨 {len(alerts) - n_up}）· 🟠关注 {len(watch)}</p>",
+             "<h4>🔴 重点提醒（距 BOLL 轨道 &lt;2%，由近到远）</h4><ul>"]
     for c, v in alerts:
-        side = "上" if v["dist_up"] <= v["dist_low"] else "下"
-        dist = v["dist_up"] if side == "上" else v["dist_low"]
-        parts.append(f"<li style='color:#c0392b'>{c} {v['name']}｜收盘 {v['close']:.2f}｜"
+        side = side_of(v)
+        icon = "🔺" if side == "上" else "🔻"
+        dist = dist_of(v)
+        parts.append(f"<li style='color:#c0392b'>{icon}{c} {v['name']}｜收盘 {v['close']:.2f}｜"
                      f"距{side}轨 {dist:.2f}%</li>")
-    parts.append("</ul><h4>🟠 关注</h4><ul>")
+    parts.append("</ul><h4>🟠 关注（由近到远）</h4><ul>")
     for c, v in watch:
         parts.append(f"<li style='color:#8a6d1a'>{c} {v['name']}｜收盘 {v['close']:.2f}｜"
                      f"距上 {v['dist_up']:.2f}% / 距下 {v['dist_low']:.2f}%</li>")

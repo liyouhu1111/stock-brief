@@ -27,13 +27,16 @@ HTML_HEAD = """<!DOCTYPE html>
           box-shadow:0 1px 4px rgba(0,0,0,.06); padding:16px 20px; }}
   .card .num {{ font-size:26px; font-weight:700; }}
   .card .lab {{ font-size:12px; color:#7a8794; }}
+  .card .detail {{ font-size:12px; margin-top:4px; }}
   .c-red {{ color:#c0392b; }} .c-orange {{ color:#d68910; }} .c-gray {{ color:#5d6d7e; }}
   table {{ width:100%; border-collapse:collapse; background:#fff; font-size:13px;
           border-radius:10px; overflow:hidden; box-shadow:0 1px 4px rgba(0,0,0,.06); }}
   th {{ background:#eef1f5; color:#34495e; padding:9px 8px; text-align:right; white-space:nowrap; }}
-  th:nth-child(1),th:nth-child(2),th:nth-child(10) {{ text-align:center; }}
+  th:nth-child(1),th:nth-child(2),th:nth-child(10),th:nth-child(11) {{ text-align:center; }}
   td {{ padding:8px; border-top:1px solid #f0f2f5; text-align:right; font-variant-numeric:tabular-nums; }}
-  td:nth-child(1),td:nth-child(2),td:nth-child(10) {{ text-align:center; }}
+  td:nth-child(1),td:nth-child(2),td:nth-child(10),td:nth-child(11) {{ text-align:center; }}
+  .side-up {{ color:#c0392b; font-weight:600; }}
+  .side-low {{ color:#1e8449; font-weight:600; }}
   tr.alert {{ background:#fdecea; }}
   tr.watch {{ background:#fef7e6; }}
   .up {{ color:#c0392b; }} .down {{ color:#1e8449; }}
@@ -60,13 +63,14 @@ HTML_HEAD = """<!DOCTYPE html>
 
   <div class="cards">
     <div class="card"><div class="num">{total}</div><div class="lab">监控股票</div></div>
-    <div class="card"><div class="num c-red">{n_alert}</div><div class="lab">🔴 重点提醒（距轨道 &lt;2%）</div></div>
+    <div class="card"><div class="num c-red">{n_alert}</div><div class="lab">🔴 重点提醒（距轨道 &lt;2%）</div>
+        <div class="detail">🔺近上轨 {n_alert_up} · 🔻近下轨 {n_alert_low}</div></div>
     <div class="card"><div class="num c-orange">{n_watch}</div><div class="lab">🟠 关注（&lt;5%）</div></div>
     <div class="card"><div class="num c-gray">{n_norm}</div><div class="lab">⚪ 正常</div></div>
   </div>
 
   <table>
-    <tr><th>代码</th><th>名称</th><th>收盘价</th><th>涨跌幅</th><th>上轨</th><th>中轨</th><th>下轨</th><th>距上轨</th><th>距下轨</th><th>档位</th></tr>
+    <tr><th>代码</th><th>名称</th><th>收盘价</th><th>涨跌幅</th><th>上轨</th><th>中轨</th><th>下轨</th><th>距上轨</th><th>距下轨</th><th>接近轨道</th><th>档位</th></tr>
     {table_rows}
   </table>
 
@@ -124,10 +128,21 @@ def main():
     except FileNotFoundError:
         news = {}
 
+    def side_of(v):
+        return "上轨" if v["dist_up"] <= v["dist_low"] else "下轨"
+
+    def dist_of(v):
+        return v["dist_up"] if v["dist_up"] <= v["dist_low"] else v["dist_low"]
+
+    # 排序：档位（重点提醒→关注→正常）→ 接近轨道分组（上轨组/下轨组）→ 距离由近到远
     order = sorted(result.items(),
                    key=lambda kv: ({"重点提醒": 0, "关注": 1}.get(kv[1]["tag"], 2),
-                                   min(kv[1]["dist_up"], kv[1]["dist_low"])))
+                                   0 if side_of(kv[1]) == "上轨" else 1,
+                                   dist_of(kv[1])))
     n_alert = sum(1 for v in result.values() if v["tag"] == "重点提醒")
+    n_alert_up = sum(1 for v in result.values()
+                     if v["tag"] == "重点提醒" and side_of(v) == "上轨")
+    n_alert_low = n_alert - n_alert_up
     n_watch = sum(1 for v in result.values() if v["tag"] == "关注")
     n_norm = len(result) - n_alert - n_watch
 
@@ -137,11 +152,15 @@ def main():
         tr_cls = {"重点提醒": "alert", "关注": "watch"}.get(v["tag"], "")
         tag_cls = {"重点提醒": "alert", "关注": "watch"}.get(v["tag"], "norm")
         pct_cls = "up" if v["pct"] >= 0 else "down"
+        side = side_of(v)
+        side_html = (f'<span class="side-up">🔺近{side}</span>' if side == "上轨"
+                     else f'<span class="side-low">🔻近{side}</span>')
         rows.append(
             f'<tr class="{tr_cls}"><td>{code}</td><td>{v["name"]}</td>'
             f'<td>{v["close"]:.2f}</td><td class="{pct_cls}">{v["pct"]:+.2f}%</td>'
             f'<td>{v["upper"]:.2f}</td><td>{v["mid"]:.2f}</td><td>{v["lower"]:.2f}</td>'
             f'<td>{v["dist_up"]:.2f}%</td><td>{v["dist_low"]:.2f}%</td>'
+            f'<td>{side_html}</td>'
             f'<td><span class="tag {tag_cls}">{v["tag"]}</span></td></tr>')
         chart_names.append(code + " " + v["name"])
         chart_up.append(round(v["dist_up"], 2))
@@ -164,7 +183,8 @@ def main():
     news_html = "".join(parts) if parts else "<p class='empty'>本期无重点提醒股票公告数据</p>"
 
     html = HTML_HEAD.format(
-        date=date, total=len(result), n_alert=n_alert, n_watch=n_watch, n_norm=n_norm,
+        date=date, total=len(result), n_alert=n_alert, n_alert_up=n_alert_up,
+        n_alert_low=n_alert_low, n_watch=n_watch, n_norm=n_norm,
         table_rows="\n".join(rows), news_html=news_html,
         chart_names=json.dumps(chart_names, ensure_ascii=False),
         chart_up=json.dumps(chart_up), chart_low=json.dumps(chart_low),
