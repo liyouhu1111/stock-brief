@@ -52,6 +52,14 @@ def main():
         payload = json.load(f)
     date, result = payload["date"], payload["result"]
 
+    # 当日防重复：同一天已成功推送过则跳过（重跑/补跑场景）
+    marker = os.path.join(root, "data", "last_push_date.txt")
+    if os.path.exists(marker):
+        last = open(marker, encoding="utf-8").read().strip()
+        if last == date:
+            print(f"SKIP_PUSH: {date} 已推送过，跳过（防重复）")
+            return
+
     brief_file = ""
     latest = os.path.join(root, "data", "latest_brief.txt")
     if os.path.exists(latest):
@@ -123,6 +131,8 @@ def main():
         print(f"push attempt {attempt}: code={code} msg={(js or {}).get('msg')}")
         if code == 1000:
             print(f"PUSH_OK uids={len(uids)}")
+            with open(marker, "w", encoding="utf-8") as f:
+                f.write(date)
             return
         time.sleep(3)
     print("PUSH_FAIL: 重试后仍失败（简报本身已生成，不受影响）")
