@@ -1,0 +1,36 @@
+name: 简报看门狗（漏跑自动补发）
+
+on:
+  schedule:
+    # UTC 8:10~11:50 每20分钟检查一次 = 北京 16:10~19:50，周一至周五
+    - cron: "10,30,50 8-11 * * 1-5"
+  workflow_dispatch: {}   # 支持手动测试
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  check-and-rerun:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检查今日简报是否已生成，缺失则补发
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TODAY=$(TZ=Asia/Shanghai date +%F)
+          echo "今日目标简报: brief-$TODAY.html"
+          RESULT=$(gh run list --repo "$GITHUB_REPOSITORY" \
+            --workflow daily-brief.yml --limit 10 \
+            --json conclusion,status,createdAt)
+          echo "$RESULT"
+          OK=$(echo "$RESULT" | jq '[.[] | select(.conclusion=="success")] | length')
+          BUSY=$(echo "$RESULT" | jq '[.[] | select(.status=="in_progress" or .status=="queued")] | length')
+          if [ "$OK" -ge 1 ]; then
+            echo "OK: 今日简报已成功生成，无需补发"
+          elif [ "$BUSY" -ge 1 ]; then
+            echo "BUSY: 今日简报正在生成中，等待下次检查"
+          else
+            echo "MISSING: 今日简报缺失，立即补发"
+            gh workflow run daily-brief.yml --repo "$GITHUB_REPOSITORY" --ref main
+          fi
