@@ -76,15 +76,40 @@ def main():
 
     # 字段 id -> 标题
     id2title = {fid: str(fd.get("30", "")) for fid, fd in fields.items()}
-    def fid_of(title):
-        for fid, t in id2title.items():
-            if t == title:
-                return fid
-        return None
 
-    f_code, f_name, f_mkt = fid_of("股票代码"), fid_of("股票名称"), fid_of("市场")
-    if not f_code:
-        raise RuntimeError("未在文档中找到「股票代码」字段")
+    # 按「内容」而非「标题」识别列（文档字段标题与 id 可能错位）
+    col_vals = {fid: [] for fid in fields}
+    for _, rcell in records.items():
+        cells = (rcell or {}).get("1") or {}
+        for fid in fields:
+            col_vals[fid].append(cell_text(cells.get(fid)))
+
+    f_code, code_hits = None, 0
+    for fid, vals in col_vals.items():
+        hits = sum(1 for v in vals if re.fullmatch(r"\d{5,6}", v))
+        if hits > code_hits:
+            f_code, code_hits = fid, hits
+    if not f_code or code_hits == 0:
+        raise RuntimeError("未识别出「股票代码」列")
+    if code_hits < len(records) * 0.5:
+        raise RuntimeError(f"股票代码列疑似异常（仅 {code_hits}/{len(records)} 条匹配）")
+
+    def _title_score(fid):
+        t = id2title.get(fid, "")
+        if t == "股票名称":
+            return 2
+        if "名称" in t or "简称" in t:
+            return 1
+        return 0
+
+    f_name, best = None, -1
+    for fid, vals in col_vals.items():
+        if fid == f_code:
+            continue
+        cn = sum(1 for v in vals if v and re.search(r"[\u4e00-\u9fff]", v))
+        score = cn * 10 + _title_score(fid)
+        if cn and score > best:
+            f_name, best = fid, score
 
     stocks = []
     for rid, rcell in records.items():
@@ -94,14 +119,7 @@ def main():
             if not re.fullmatch(r"\d{5,6}", code):
                 continue
             name = cell_text(cells.get(f_name)) if f_name else ""
-            mkt = ""
-            if f_mkt and f_mkt in cells:
-                sel = cells[f_mkt].get("17")
-                if isinstance(sel, list) and sel:
-                    mkt = options.get(f_mkt + "|" + str(sel[0]), "")
-            if not mkt:
-                mkt = "A股"
-            stocks.append({"code": code, "name": name, "market": mkt})
+            stocks.append({"code": code, "name": name, "market": "A股"})
         except Exception:
             continue
 
