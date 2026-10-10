@@ -80,7 +80,7 @@ HTML_HEAD = """<!DOCTYPE html>
   </div>
 
   <table>
-    <tr><th>代码</th><th>名称</th><th>收盘价</th><th>涨跌幅</th><th>上轨</th><th>中轨</th><th>下轨</th><th>距上轨</th><th>距下轨</th><th>接近轨道</th><th>档位</th></tr>
+    <tr><th>档位</th><th>接近轨道</th><th>代码</th><th>名称</th><th>收盘价</th><th>涨跌幅</th><th>上轨</th><th>中轨</th><th>下轨</th><th>距上轨</th><th>距下轨</th></tr>
     {table_rows}
   </table>
 
@@ -169,12 +169,13 @@ def main():
         side_html = (f'<span class="side-up">🔺近{side}</span>' if side == "上轨"
                      else f'<span class="side-low">🔻近{side}</span>')
         rows.append(
-            f'<tr class="{tr_cls}"><td>{code}</td><td>{v["name"]}</td>'
+            f'<tr class="{tr_cls}">'
+            f'<td><span class="tag {tag_cls}">{v["tag"]}</span></td>'
+            f'<td>{side_html}</td>'
+            f'<td>{code}</td><td>{v["name"]}</td>'
             f'<td>{v["close"]:.2f}</td><td class="{pct_cls}">{v["pct"]:+.2f}%</td>'
             f'<td>{v["upper"]:.2f}</td><td>{v["mid"]:.2f}</td><td>{v["lower"]:.2f}</td>'
-            f'<td>{v["dist_up"]:.2f}%</td><td>{v["dist_low"]:.2f}%</td>'
-            f'<td>{side_html}</td>'
-            f'<td><span class="tag {tag_cls}">{v["tag"]}</span></td></tr>')
+            f'<td>{v["dist_up"]:.2f}%</td><td>{v["dist_low"]:.2f}%</td></tr>')
         chart_names.append(code + " " + v["name"])
         chart_up.append(round(v["dist_up"], 2))
         chart_low.append(-round(v["dist_low"], 2))
